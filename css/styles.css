@@ -5,7 +5,7 @@
   --card-set-qap: 30px;
   /* animation */
   --timing-anim: cubic-bezier(0.4, 0, 0.2, 1);
-  --anim-duration: 250ms 
+  --anim-duration: 250ms;
 }
 /* Главная */
 body {
@@ -89,6 +89,8 @@ ul {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
+
+  transition: color var(--anim-duration) var(--timing-anim);
 }
 
 .site-nav-item {
@@ -131,11 +133,6 @@ ul {
   margin-right: 50px;
   color: var(--main-txt-cl);
   align-items: center;
-
-  transition-property: color;
-  transition-duration: var(--anim-duration);
-  transition-timing-function: var(--timing-anim) ;
-
 }
 
 .contact-link:last-child {
@@ -162,9 +159,10 @@ ul {
   padding-bottom: 32px;
   display: flex;
   align-items: center;
+
   transition-property: color;
   transition-duration: var(--anim-duration);
-  transition-timing-function: var(--timing-anim) ;
+  transition-timing-function: var(--timing-anim);
 }
 .studio-icon {
   fill: currentcolor;
@@ -225,7 +223,8 @@ ul {
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 10;
 
-  transition: opacity var(--anim-duration) var(--timing-anim), visibility var(--timing-anim) var(--anim-duration);
+  transition: opacity var(--anim-duration) var(--timing-anim),
+    visibility var(--timing-anim) var(--anim-duration);
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -412,11 +411,12 @@ ul {
   height: 44px;
 
   background-color: #ffffff;
-
   border-radius: 50%;
+
   transition-property: background-color;
   transition-duration: var(--anim-duration);
-  transition-timing-function: var(--timing-anim) ;
+  transition-timing-function: var(--timing-anim);
+  transition: fill var(--anim-duration) var(--timing-anim);
 }
 .socials-link:hover,
 .socials-link:focus {
@@ -462,12 +462,9 @@ ul {
 
   border: 1px solid #afb1b8;
   border-radius: 4px;
-  transition: fill;
-  transition: border;
-  transition: var(--slow-anim);
-  transition-property: border;
-  transition-duration: var(--anim-duration);
-  transition-timing-function: var(--timing-anim) ;
+
+  transition: border var(--anim-duration) var(--timing-anim),
+    fill var(--anim-duration) var(--timing-anim);
 }
 .clients-icon {
   fill: #afb1b8;
@@ -566,10 +563,10 @@ ul {
   background-color: rgba(255, 255, 255, 0.1);
 
   border-radius: 50%;
- 
+
   transition-property: background-color;
   transition-duration: var(--anim-duration);
-  transition-timing-function: var(--timing-anim) ;
+  transition-timing-function: var(--timing-anim);
 }
 .socials-links:hover,
 .socials-links:focus {
@@ -604,9 +601,10 @@ ul {
   border: none;
   border-radius: 4px;
 
-  transition-property: background-color, color, box-shadow, border-radius;
-  transition-duration: var(--anim-duration);
-  transition-timing-function: var(--timing-anim) ;
+  transition-property: background-color var(--anim-duration) var(--timing-anim),
+    color var(--anim-duration) var(--timing-anim),
+    box-shadow var(--anim-duration) var(--timing-anim),
+    border-radius var(--anim-duration) var(--timing-anim);
 }
 .btn-item {
   margin-right: 8px;
@@ -684,35 +682,45 @@ ul {
 }
 .card-link {
   display: block;
-  text-decoration: none; 
+  text-decoration: none;
 
-  transition-property: background-color, box-shadow;
-  transition-duration: var(--anim-duration);
-  transition-timing-function: var(--timing-anim) ;
+  transition: background-color var(--anim-duration) var(--timing-anim),
+    box-shadow var(--anim-duration) var(--timing-anim);
 }
-.card-link:hover,
-.card-link:focus {
-  background-color: #ffffff;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-}
+
 /* оверлей с текстом */
-.overlay {
-display: block;
-justify-content: center;
-padding-top: 63px;
-padding-left: 24px;
-width: 370px;
-height: 294px;
-left: 215px;
-top: 262px;
-background: rgba(33, 150, 243, 0.9);
+.card-overlay {
+  display: block;
+  justify-content: center;
+  padding-top: 63px;
+  padding-left: 24px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  top: 0;
+  left: 0;
+
+  opacity: 0;
+  transition: opacity var(--anim-duration) var(--timing-anim);
+
+  position: absolute;
+  transform: translateY(100%);
+  transition: transform var(--anim-duration) var(--timing-anim);
+}
+.card-overlay-thumb {
+  position: relative;
+  overflow: hidden;
 }
 
-.overlay-text{
-font-weight: 400;
-font-size: 18px;
-line-height: 1.55;
-letter-spacing: 0.03em;
-color: #FFFFFF;
+.card-item:hover .card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+.overlay-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  color: #ffffff;
 }
