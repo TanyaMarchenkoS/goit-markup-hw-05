@@ -600,12 +600,12 @@ ul {
   padding: 6px 32px;
   border: none;
   border-radius: 4px;
-
-  transition-property: background-color var(--anim-duration) var(--timing-anim),
+  transition: background-color var(--anim-duration) var(--timing-anim),
     color var(--anim-duration) var(--timing-anim),
     box-shadow var(--anim-duration) var(--timing-anim),
     border-radius var(--anim-duration) var(--timing-anim);
 }
+
 .btn-item {
   margin-right: 8px;
 }
