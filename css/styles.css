@@ -114,7 +114,7 @@ ul {
   border-radius: 2px;
   background-color: var(--accent-color);
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
 }
 
@@ -413,10 +413,8 @@ ul {
   background-color: #ffffff;
   border-radius: 50%;
 
-  transition-property: background-color;
-  transition-duration: var(--anim-duration);
-  transition-timing-function: var(--timing-anim);
-  transition: fill var(--anim-duration) var(--timing-anim);
+  transition: fill var(--anim-duration) var(--timing-anim),
+    background-color var(--anim-duration) var(--timing-anim);
 }
 .socials-link:hover,
 .socials-link:focus {
@@ -463,11 +461,12 @@ ul {
   border: 1px solid #afb1b8;
   border-radius: 4px;
 
-  transition: border var(--anim-duration) var(--timing-anim),
-    fill var(--anim-duration) var(--timing-anim);
+  transition: border var(--anim-duration) var(--timing-anim);
 }
+
 .clients-icon {
   fill: #afb1b8;
+  transition: fill var(--anim-duration) var(--timing-anim);
 }
 
 .clients-link:hover,
@@ -701,9 +700,6 @@ ul {
   top: 0;
   left: 0;
 
-  opacity: 0;
-  transition: opacity var(--anim-duration) var(--timing-anim);
-
   position: absolute;
   transform: translateY(100%);
   transition: transform var(--anim-duration) var(--timing-anim);
@@ -712,11 +708,14 @@ ul {
   position: relative;
   overflow: hidden;
 }
-
-.card-item:hover .card-overlay {
-  opacity: 1;
+.card-link {
+  transition: transform var(--anim-duration) var(--timing-anim);
+}
+.card-link:hover .card-overlay,
+.card-link:focus .card-overlay {
   transform: translateY(0);
 }
+
 .overlay-text {
   font-weight: 400;
   font-size: 18px;
