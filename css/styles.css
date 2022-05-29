@@ -430,7 +430,9 @@ ul {
 .socials-icon {
   fill: #afb1b8;
 }
-
+.socials-item .socials-link {
+  transition: fill var(--anim-duration) var(--timing-anim);
+}
 /* Постоянные клиенты */
 .clients-title {
   font-weight: 700;
@@ -682,11 +684,12 @@ ul {
 .card-link {
   display: block;
   text-decoration: none;
+}
 
+.card-item .card-link {
   transition: background-color var(--anim-duration) var(--timing-anim),
     box-shadow var(--anim-duration) var(--timing-anim);
 }
-
 /* оверлей с текстом */
 .card-overlay {
   display: block;
@@ -708,7 +711,7 @@ ul {
   position: relative;
   overflow: hidden;
 }
-.card-link {
+.card-link .card-overlay {
   transition: transform var(--anim-duration) var(--timing-anim);
 }
 .card-link:hover .card-overlay,
